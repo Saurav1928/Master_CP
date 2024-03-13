@@ -1,6 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+class myComparator {
+    public :
+    bool operator() (int a, int b){
+        return a>b;
+    }
+};
+
+
 bool static asc_cmp(int &a, int&b){
     if(a<b) return true;
     else return false;
@@ -34,7 +42,7 @@ void printVecPair(vector<pair<int, int>>&vp){
     for(auto it:vp) cout<<it.first<<" "<<it.second<<endl;
 }
 int main(){
-    // vector<int>v={4,2,1,5,2,3,7};
+     vector<int>v={4,2,1,5,2,3,7};
     // printVec(v);
     // sort(v.begin(), v.end(), asc_cmp);
     // printVec(v);
@@ -43,10 +51,16 @@ int main(){
     // sort(v.begin(), v.end(),odd_cmp);
     // printVec(v);
    
-     vector<pair<int, int>>vp={{1,2}, {3,1}, {5, 6}, {9, 4}};
-      printVecPair(vp);
-      cout<<"*****"<<endl;
-     sort(vp.begin(), vp.end(),dec_cmp_vec_pair);
-      printVecPair(vp);
+   //  vector<pair<int, int>>vp={{1,2}, {3,1}, {5, 6}, {9, 4}};
+  //    printVecPair(vp);
+     // cout<<"*****"<<endl;
+    // sort(vp.begin(), vp.end(),dec_cmp_vec_pair);
+    //  printVecPair(vp);
+
+
+// Functors
+ printVec(v);
+   sort(v.begin(), v.end(),myComparator());
+    printVec(v);
     return 0;
 }
