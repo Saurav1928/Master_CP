@@ -1,23 +1,22 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
 class myComparator {
-    public :
-    bool operator() (int a, int b){
-        return a>b;
+    public: bool operator()(int a, int b) {
+        return a > b;
     }
 };
 
-
-bool static asc_cmp(int &a, int&b){
-    if(a<b) return true;
+bool static asc_cmp(int & a, int & b) {
+    if (a < b) return true;
     else return false;
 }
-bool static desc_cmp(int &a, int&b){
-    if(a>b) return true;
+bool static desc_cmp(int & a, int & b) {
+    if (a > b) return true;
     else return false;
 }
-bool static odd_cmp(int &a, int &b) {
+bool static odd_cmp(int & a, int & b) {
     if (a % 2 != 0 && b % 2 != 0) { // both odd
         return a < b;
     } else if (a % 2 == 0 && b % 2 == 0) { // both even
@@ -27,23 +26,23 @@ bool static odd_cmp(int &a, int &b) {
     }
 }
 // inc sort on inc 2nd value of pair
-bool static inc_cmp_vec_pair(pair<int, int>&pr1, pair<int, int>&pr2){
-    return pr1.second<pr2.second;
+bool static inc_cmp_vec_pair(pair < int, int > & pr1, pair < int, int > & pr2) {
+    return pr1.second < pr2.second;
 }
 // dec sort on 1st value of pair
-bool static dec_cmp_vec_pair(pair<int, int>&pr1, pair<int, int>&pr2){
-    return pr1.first>pr2.first;
+bool static dec_cmp_vec_pair(pair < int, int > & pr1, pair < int, int > & pr2) {
+    return pr1.first > pr2.first;
 }
-void printVec(vector<int>&v) {
-    for(auto &val:v) cout<<val<<" ";
-    cout<<endl;
+void printVec(vector < int > & v) {
+    for (auto & val: v) cout << val << " ";
+    cout << endl;
 }
-void printVecPair(vector<pair<int, int>>&vp){
-    for(auto it:vp) cout<<it.first<<" "<<it.second<<endl;
+void printVecPair(vector < pair < int, int >> & vp) {
+    for (auto it: vp) cout << it.first << " " << it.second << endl;
 }
 
-int main(){
-     vector<int>v={4,2,1,5,2,3,7};
+int main() {
+      vector<int>v={3, 4,2,1,5,2,3,7};
     // printVec(v);
     // sort(v.begin(), v.end(), asc_cmp);
     // printVec(v);
@@ -51,17 +50,17 @@ int main(){
     // printVec(v);
     // sort(v.begin(), v.end(),odd_cmp);
     // printVec(v);
-   
-   //  vector<pair<int, int>>vp={{1,2}, {3,1}, {5, 6}, {9, 4}};
-  //    printVecPair(vp);
-     // cout<<"*****"<<endl;
+
+    //  vector<pair<int, int>>vp={{1,2}, {3,1}, {5, 6}, {9, 4}};
+    //    printVecPair(vp);
+    // cout<<"*****"<<endl;
     // sort(vp.begin(), vp.end(),dec_cmp_vec_pair);
     //  printVecPair(vp);
 
-// using Lamda Expression
-// Functors
- printVec(v);
-   sort(v.begin(), v.end(),myComparator());
+    // using Lamda Expression
+    // Functors
+    printVec(v);
+    sort(v.begin(), v.end(), myComparator());
     printVec(v);
     return 0;
 }
