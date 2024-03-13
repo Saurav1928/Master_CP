@@ -41,6 +41,7 @@ void printVec(vector<int>&v) {
 void printVecPair(vector<pair<int, int>>&vp){
     for(auto it:vp) cout<<it.first<<" "<<it.second<<endl;
 }
+
 int main(){
      vector<int>v={4,2,1,5,2,3,7};
     // printVec(v);
@@ -57,7 +58,7 @@ int main(){
     // sort(vp.begin(), vp.end(),dec_cmp_vec_pair);
     //  printVecPair(vp);
 
-
+// using Lamda Expression
 // Functors
  printVec(v);
    sort(v.begin(), v.end(),myComparator());
