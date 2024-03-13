@@ -9,7 +9,6 @@ bool static desc_cmp(int &a, int&b){
     if(a>b) return true;
     else return false;
 }
-// sorts them in ascending order. If one is odd and the other is even, the odd number should come before the even number.
 bool static odd_cmp(int &a, int &b) {
     if (a % 2 != 0 && b % 2 != 0) { // both odd
         return a < b;
@@ -19,20 +18,35 @@ bool static odd_cmp(int &a, int &b) {
         return a % 2 != 0;
     }
 }
-
+// inc sort on inc 2nd value of pair
+bool static inc_cmp_vec_pair(pair<int, int>&pr1, pair<int, int>&pr2){
+    return pr1.second<pr2.second;
+}
+// dec sort on 1st value of pair
+bool static dec_cmp_vec_pair(pair<int, int>&pr1, pair<int, int>&pr2){
+    return pr1.first>pr2.first;
+}
 void printVec(vector<int>&v) {
     for(auto &val:v) cout<<val<<" ";
     cout<<endl;
 }
+void printVecPair(vector<pair<int, int>>&vp){
+    for(auto it:vp) cout<<it.first<<" "<<it.second<<endl;
+}
 int main(){
-    vector<int>v={4,2,1,5,2,3,7};
-    printVec(v);
-    sort(v.begin(), v.end(), asc_cmp);
-    printVec(v);
-        sort(v.begin(), v.end(),desc_cmp);
-    printVec(v);
-    sort(v.begin(), v.end(),odd_cmp);
-    printVec(v);
-
+    // vector<int>v={4,2,1,5,2,3,7};
+    // printVec(v);
+    // sort(v.begin(), v.end(), asc_cmp);
+    // printVec(v);
+    //     sort(v.begin(), v.end(),desc_cmp);
+    // printVec(v);
+    // sort(v.begin(), v.end(),odd_cmp);
+    // printVec(v);
+   
+     vector<pair<int, int>>vp={{1,2}, {3,1}, {5, 6}, {9, 4}};
+      printVecPair(vp);
+      cout<<"*****"<<endl;
+     sort(vp.begin(), vp.end(),dec_cmp_vec_pair);
+      printVecPair(vp);
     return 0;
 }
