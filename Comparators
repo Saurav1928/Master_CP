@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool static asc_cmp(int &a, int&b){
+    if(a<b) return true;
+    else return false;
+}
+bool static desc_cmp(int &a, int&b){
+    if(a>b) return true;
+    else return false;
+}
+// sorts them in ascending order. If one is odd and the other is even, the odd number should come before the even number.
+bool static odd_cmp(int &a, int &b) {
+    if (a % 2 != 0 && b % 2 != 0) { // both odd
+        return a < b;
+    } else if (a % 2 == 0 && b % 2 == 0) { // both even
+        return a < b;
+    } else { // one odd, one even
+        return a % 2 != 0;
+    }
+}
+
+void printVec(vector<int>&v) {
+    for(auto &val:v) cout<<val<<" ";
+    cout<<endl;
+}
+int main(){
+    vector<int>v={4,2,1,5,2,3,7};
+    printVec(v);
+    sort(v.begin(), v.end(), asc_cmp);
+    printVec(v);
+        sort(v.begin(), v.end(),desc_cmp);
+    printVec(v);
+    sort(v.begin(), v.end(),odd_cmp);
+    printVec(v);
+
+    return 0;
+}
